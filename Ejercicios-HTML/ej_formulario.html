@@ -10,6 +10,7 @@
       }
     </style>
   </head>
+
   <body>
     <!--Cree un Formulario con los campos que se proponen a continuacion-->
     <!--Agregue el atributo legend-->
@@ -21,109 +22,166 @@
       Suscribase a Nuestro Portal de Noticias! Crear una cuenta es rápido!
     </h3>
     <form name="Suscribirse">
-      <p>
-        Nombre:
-        <input
-          type="text"
-          name="nombre"
-          size="40"
-          placeholder="Ingrese su nombre"
-          maxlength="40"
-          required
-        />
-      </p>
-      <p>
-        Apellido:
-        <input
-          type="text"
-          name="apellido"
-          size="40"
-          placeholder="Ingrese su apellido"
-          maxlength="40"
-          required
-        />
-      </p>
-      <p>
-        Sexo:
-        <input type="radio" name="sexo" value="'femenino" /> Femenino
-        <input type="radio" name="sexo" value="'masculino" /> Masculino
-        <input type="radio" name="sexo" value="'prefiero_no_decir" /> Prefiero
-        no decir
-      </p>
-      <p>
-        Edad:
-        <input
-          type="number"
-          name="edad"
-          placeholder="Ingrese su edad"
-          maxlength="3"
-        />
-      </p>
-      <p>
-        Email:
-        <input
-          type="email"
-          name="email"
-          size="40"
-          placeholder="Ingrese su email"
-          maxlength="40"
-          required
-        />
-      </p>
-      <p>
-        Usuario:
-        <input
-          type="text"
-          name="usuario"
-          size="40"
-          placeholder="Ingrese su usuario"
-          maxlength="40"
-          required
-        />
-      </p>
-      <p>
-        Password:
-        <input
-          type="password"
-          name="password"
-          size="40"
-          placeholder="Ingrese su password"
-          maxlength="40"
-          required
-        />
-      </p>
-      <p>
-        Confirmar Password:
-        <input
-          type="password"
-          name="confirmar_password"
-          size="40"
-          placeholder="Confirme su password"
-          maxlength="40"
-          required
-        />
-      </p>
-      <p>
-        Tipo de servicio:
-        <select name="Tipo de servicio">
-          <option value="Free">Free</option>
-          <option value="Standard">Standard</option>
-          <option value="Premium">Premium</option>
-        </select>
-      </p>
-      <p>
-        Tema:
-        <input type="checkbox" name="ck_politica" value="Política" /> Política
-        <input type="checkbox" name="ck_negocios" value="Negocios" /> Negocios
-        <input type="checkbox" name="ck_tecnologia" value="Tecnología" />
-        Tecnología <input type="checkbox" name="ck_salud" value="Salud" /> Salud
-      </p>
-      <p>
-        Agregue un comentario:
-        <textarea>
-            Escriba un comentario...
-        </textarea>
-      </p>
+      <fieldset>
+        <legend>Datos Personales</legend>
+        <p>
+          <label for="Nombre">Nombre:</label>
+          <input
+            id="Nombre"
+            type="text"
+            name="nombre"
+            size="40"
+            placeholder="Ingrese su nombre"
+            maxlength="40"
+            required
+          />
+        </p>
+        <p>
+          <label for="Apellido">Apellido:</label>
+          <input
+            id="Apellido"
+            type="text"
+            name="apellido"
+            size="40"
+            placeholder="Ingrese su apellido"
+            maxlength="40"
+            required
+          />
+        </p>
+        <p>
+          Sexo:
+          <label for="Femenino">Femenino</label>
+          <input 
+            type="radio" 
+            name="sexo" 
+            value="'femenino" 
+            id="Femenino" 
+          />
+          <label for="Masculino">Masculino</label>
+          <input 
+            type="radio" 
+            name="sexo" 
+            value="'masculino" 
+            id="Masculino" 
+          />
+          <label for="Prefiero no decir">Prefiero no decir</label>
+          <input
+            type="radio"
+            name="sexo"
+            value="'prefiero_no_decir"
+            id="prefiero_no_decir"
+          />
+        </p>
+        <p>
+          <label for="Edad">Edad:</label>
+          <input
+            id="Edad"
+            type="number"
+            name="edad"
+            placeholder="Ingrese su edad"
+            maxlength="3"
+          />
+        </p>
+        <p>
+          <label for="Email">Email:</label>
+          <input
+            id="Email"
+            type="email"
+            name="email"
+            size="40"
+            placeholder="Ingrese su email"
+            maxlength="40"
+            required
+          />
+        </p>
+      </fieldset>
+      <fieldset>
+        <legend>Datos de la Cuenta</legend>
+        <p>
+          <label for="usuario">Usuario:</label>
+          <input
+            id="Usuario"
+            type="text"
+            name="usuario"
+            size="40"
+            placeholder="Ingrese su usuario"
+            maxlength="40"
+            required
+          />
+        </p>
+        <p>
+          <label for="Password">Password:</label>
+          <input
+            id="Password"
+            type="password"
+            name="password"
+            size="40"
+            placeholder="Ingrese su password"
+            maxlength="40"
+            required
+          />
+        </p>
+        <p>
+          <label for="Confirmar_Password">Confirmar Password:</label>
+          <input
+            id="Confirmar_Password"
+            type="password"
+            name="confirmar_password"
+            size="40"
+            placeholder="Confirme su password"
+            maxlength="40"
+            required
+          />
+        </p>
+      </fieldset>
+      <fieldset>
+        <legend>Tipo de servicio</legend>
+        <p>
+          <label for="Tipo_de_servicio">Tipo de servicio:</label>
+          <select name="Tipo de servicio" id="Tipo_de_servicio">
+            <option value="Free">Free</option>
+            <option value="Standard">Standard</option>
+            <option value="Premium">Premium</option>
+          </select>
+        </p>
+        <p>
+          Tema:
+          <input
+            type="checkbox"
+            name="ck_politica"
+            value="Política"
+            id="Politica"
+          />
+          <label for="Política">Política</label>
+          <input
+            type="checkbox"
+            name="ck_negocios"
+            value="Negocios"
+            id="Negocios"
+          />
+          <label for="Negocios">Negocios</label>
+          <input
+            type="checkbox"
+            name="ck_tecnologia"
+            value="Tecnología"
+            id="Tecnología"
+          />
+          <label for="Tecnologia">Tecnologia</label>
+          <input 
+            type="checkbox" 
+            name="ck_salud" 
+            value="Salud" 
+            id="Salud"
+          />
+          <label for="Salud">Salud</label>
+        </p>
+        <p>
+          <label for="Agregue_un_comentario">Agregue un comentario:</label>
+          <textarea id="Agregue_un_comentario">
+ Escriba un comentario... </textarea
+          >
+        </p>
+      </fieldset>
       <button type="button">Boton de Enviar</button>
     </form>
   </body>
