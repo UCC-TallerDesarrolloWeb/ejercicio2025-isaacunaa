@@ -1,0 +1,27 @@
+
+div{
+            border:1px solid black;
+            margin:20px;
+            padding:10px;
+            background-color: rgba(211, 211, 211, 0.646);
+            border-radius: 15px;
+            box-shadow: 5px 5px grey;
+        }
+        #icono{
+            width: 10%;
+            float: left;
+            border-radius: 50%;
+        }
+        /*Estilos de body*/
+        body{
+            text-align: center;
+            font-family: 'Montserrat', sans-serif;
+            background: linear-gradient(to right, #5e63ea, #ffffff);
+        }
+        h3{
+            text-shadow: 3px 3px grey;
+        }
+        .titulo{
+            text-decoration: underline;
+            font-size: 30px;
+        }
