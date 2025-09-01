@@ -25,3 +25,7 @@ div{
             text-decoration: underline;
             font-size: 30px;
         }
+        .pos-fix{
+            position: fixed;
+            top: 0;
+        }
