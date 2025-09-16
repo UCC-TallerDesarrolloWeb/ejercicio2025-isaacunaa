@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="es"> 
+  <head> 
+    <meta charset="UTF-8" />
+    <title>Catalogo de Productos</title>
+    <link rel="stylesheet" href="store.css" type="text/css" />
+    <script type="text/javascript" src="../Ejercicios-JavaScript/tienda.js" defer></script>
+    <script type="text/javascript" src="../Ejercicios-JavaScript/misFunciones.js" defer></script>
+
+  </head>
+  <body class="grid-container" onload="cargarProductos()">
+    <header class="item1">Catalogo de poductos</header>
+    <nav class="item2">
+      <a href="ej_productos.html">Catalogo</a>
+      <a href="../Ejercicios-JavaScript/carrito.html">Carrito de comrpas</a>
+    </nav>
+
+    <aside class="item3">
+      <form>
+        <fieldset>
+          <legend>Busqueda</legend>
+          <label for="Search">Buscar:</label>
+          <input type="text" name="search" id="search" placeholder="Ingrese el producto">
+        </fieldset>
+        <fieldset>
+          <legend>Precios</legend>
+          <p>
+            <label for="price-min">Minimo:</label>
+            <input type="number" name="min" id="price-min" value="0" placeholder="0">
+          </p>
+          <p>
+            <label for="price-max">Maximo:</label>
+            <input type="number" name="max" id="price-max" min="0" placeholder="10000">
+          </p>
+        </fieldset>
+        </p>
+        <fieldset>
+          <legend>Tipo de productos</legend>
+          <p>
+            <input type="checkbox" id="protectores" name="tipo" value="protectores">
+            <label for="protectores">Protectores</label>
+          </p>
+          <p>
+            <input type="checkbox" id="dobok" name="tipo" value="dobok">
+            <label for="dobok">Dobok</label>
+          </p>
+          <p>
+            <input type="checkbox" id="entrenamiento" name="tipo" value="entrenamiento">
+            <label for="entrenamiento">Entrenamiento</label>
+          </p>
+      </form>
+    </aside>
+
+    <main id="mostrar-catalogo" class="item4">
+      <div> 
+        <img src="images/cabezal-cerrado.webp" alt="Cabezal Cerrado"> 
+        <h3>Cabezal Cerrado</h3>
+        <button type ="button" onclick="mostrarModal(0)">Ver detalle</button>
+      </div>
+      <div> 
+        <img src="images/dobok.webp" alt="Dobok"> 
+        <h3>Dobok</h3>
+        <button type ="button" onclick="mostrarModal(1)">Ver detalle</button>
+      </div>
+      <div> 
+        <img src="images/escudo-potencia.webp" alt="Escudo de Potencia"> 
+        <h3>Escudo de Potencia</h3>
+        <button type ="button" onclick="mostrarModal(2)">Ver detalle</button>
+      </div>
+      <div> 
+        <img src="images/foco-con-dedos.webp" alt="Foco con Dedos"> 
+        <h3>Foco con Dedos</h3>
+        <button type ="button" onclick="mostrarModal(3)">Ver detalle</button>
+      </div>
+      <div> 
+        <img src="images/protectores-manos.webp" alt="Protectores de Manos"> 
+        <h3>Protectores de Manos</h3>
+        <button type ="button" onclick="mostrarModal(4)">Ver detalle</button>
+      </div>
+      <div> 
+        <img src="images/protectores-pie.webp" alt="Protector de Pie"> 
+        <h3>Protector de Pie</h3>
+        <button type ="button" onclick="mostrarModal(5)">Ver detalle</button>
+      </div>
+    </main>
+    <dialog id="modal">
+        <h2 id="titulo-producto"></h2>
+        <img id="img-producto" alt="" style="max-width: 260px; display:block; margin: 10px auto;">
+        <p id="descr-producto"></p>
+        <p id="precio-producto" style="font-weight:bold;"></p>
+        <button type="button" onclick="cerrarModal()">Cerrar</button>
+    </dialog>
+    <footer class="item5">Info de contacto</footer>
+    
+  </body>
+</html>
+
+
