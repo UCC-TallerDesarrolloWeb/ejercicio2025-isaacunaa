@@ -5,94 +5,107 @@
     <title>Catalogo de Productos</title>
     <link rel="stylesheet" href="store.css" type="text/css" />
     <script type="text/javascript" src="../Ejercicios-JavaScript/tienda.js" defer></script>
-    <script type="text/javascript" src="../Ejercicios-JavaScript/misFunciones.js" defer></script>
-
+    <meta charset="UTF-8" />
   </head>
-  <body class="grid-container" onload="cargarProductos()">
-    <header class="item1">Catalogo de poductos</header>
+  <body class="grid-container" onload="mostrarCatalogo();contarProductos()">
+    <header class="item1">Católogo de Productos</header>
     <nav class="item2">
-      <a href="ej_productos.html">Catalogo</a>
-      <a href="../Ejercicios-JavaScript/carrito.html">Carrito de comrpas</a>
+      <a href="productos.html">Catálogo de Productos</a>
+      <a href="carrito.html">Carrito de Compras</a>
     </nav>
-
     <aside class="item3">
       <form>
         <fieldset>
-          <legend>Busqueda</legend>
-          <label for="Search">Buscar:</label>
-          <input type="text" name="search" id="search" placeholder="Ingrese el producto">
+          <legend>Búsqueda</legend>
+          <label for="search">Buscar:</label>
+          <input
+            type="text"
+            id="search"
+            name="search"
+            placeholder="Palabra..."
+            onchange="filtrarProducto()"
+          />
         </fieldset>
         <fieldset>
           <legend>Precios</legend>
           <p>
-            <label for="price-min">Minimo:</label>
-            <input type="number" name="min" id="price-min" value="0" placeholder="0">
+            <label for="price-min">Mínimo:</label>
+            <input
+              type="number"
+              id="price-min"
+              name="price-min"
+              value="0"
+              min="0"
+              onchange="filtrarProducto()"
+            />
           </p>
           <p>
-            <label for="price-max">Maximo:</label>
-            <input type="number" name="max" id="price-max" min="0" placeholder="10000">
+            <label for="price-max">Máximo:</label>
+            <input
+              type="number"
+              id="price-max"
+              name="price-max"
+              value="0"
+              min="0"
+              onchange="filtrarProducto()"
+            />
           </p>
         </fieldset>
-        </p>
         <fieldset>
-          <legend>Tipo de productos</legend>
+          <legend>Tipo de Productos</legend>
           <p>
-            <input type="checkbox" id="protectores" name="tipo" value="protectores">
+            <input
+              type="checkbox"
+              id="protectores"
+              name="protectores"
+              onchange="filtrarProducto()"
+            />
             <label for="protectores">Protectores</label>
           </p>
           <p>
-            <input type="checkbox" id="dobok" name="tipo" value="dobok">
-            <label for="dobok">Dobok</label>
-          </p>
-          <p>
-            <input type="checkbox" id="entrenamiento" name="tipo" value="entrenamiento">
+            <input
+              type="checkbox"
+              id="entrenamiento"
+              name="entrenamiento"
+              onchange="filtrarProducto()"
+            />
             <label for="entrenamiento">Entrenamiento</label>
           </p>
+          <p>
+            <input
+              type="checkbox"
+              id="dobok"
+              name="dobok"
+              onchange="filtrarProducto()"
+            />
+            <label for="dobok">Dobok</label>
+          </p>
+        </fieldset>
+        <fieldset>
+          <legend>Marca</legend>
+          <select id="marca" onchange="filtrarProducto()">
+            <option value="Todas">Todas</option>
+            <option value="Gran Marc">Gran Marc</option>
+            <option value="Daedo">Daedo</option>
+          </select>
+        </fieldset>
+        <select id="order" onchange="orderCatalog(this.value)">
+          <option value="">Seleccione un orden</option>
+          <option value="menor">Precio - de Menor a Mayor</option>
+          <option value="mayor">Precio - de Mayor a Menor</option>
+          <option value="a-z">Nombre - de A a la Z</option>
+          <option value="z-a">Nombre - de la Z a la A</option>
+        </select>
       </form>
     </aside>
-
-    <main id="mostrar-catalogo" class="item4">
-      <div> 
-        <img src="images/cabezal-cerrado.webp" alt="Cabezal Cerrado"> 
-        <h3>Cabezal Cerrado</h3>
-        <button type ="button" onclick="mostrarModal(0)">Ver detalle</button>
-      </div>
-      <div> 
-        <img src="images/dobok.webp" alt="Dobok"> 
-        <h3>Dobok</h3>
-        <button type ="button" onclick="mostrarModal(1)">Ver detalle</button>
-      </div>
-      <div> 
-        <img src="images/escudo-potencia.webp" alt="Escudo de Potencia"> 
-        <h3>Escudo de Potencia</h3>
-        <button type ="button" onclick="mostrarModal(2)">Ver detalle</button>
-      </div>
-      <div> 
-        <img src="images/foco-con-dedos.webp" alt="Foco con Dedos"> 
-        <h3>Foco con Dedos</h3>
-        <button type ="button" onclick="mostrarModal(3)">Ver detalle</button>
-      </div>
-      <div> 
-        <img src="images/protectores-manos.webp" alt="Protectores de Manos"> 
-        <h3>Protectores de Manos</h3>
-        <button type ="button" onclick="mostrarModal(4)">Ver detalle</button>
-      </div>
-      <div> 
-        <img src="images/protectores-pie.webp" alt="Protector de Pie"> 
-        <h3>Protector de Pie</h3>
-        <button type ="button" onclick="mostrarModal(5)">Ver detalle</button>
-      </div>
-    </main>
-    <dialog id="modal">
-        <h2 id="titulo-producto"></h2>
-        <img id="img-producto" alt="" style="max-width: 260px; display:block; margin: 10px auto;">
-        <p id="descr-producto"></p>
-        <p id="precio-producto" style="font-weight:bold;"></p>
-        <button type="button" onclick="cerrarModal()">Cerrar</button>
+    <dialog id="detalle">
+      <h2>Detalle del Producto</h2>
+      <h3 id="titulo-prod">Cabezal Cerrado</h3>
+      <p id="descr-prod">Este producto viene del talle 1 al 3.</p>
+      <p id="precio-prod"></p>
+      <button type="button" onclick="cerrarModal()">Cerrar</button>
     </dialog>
-    <footer class="item5">Info de contacto</footer>
-    
+    <main class="item4" id="catalogo"></main>
+    <footer class="item5">Info de Contacto</footer>
   </body>
 </html>
-
-

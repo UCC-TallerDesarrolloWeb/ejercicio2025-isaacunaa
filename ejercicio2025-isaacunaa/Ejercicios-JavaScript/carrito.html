@@ -5,23 +5,20 @@
   <title>Carrito de Compras</title>
   <!-- Volvemos a tu CSS local, como en tu archivo original -->
   <link rel="stylesheet" href="store.css" type="text/css" />
-  <script src="../Ejercicios-JavaScript/tienda.js" defer></script>
-</head>
-<body class="grid-container" onload="cargarCarrito()">
-  <header class="item1">Carrito</header>
-
-  <nav class="item2">
-    <!-- Este link lo dejo apuntando al catálogo que sí existe -->
-    <a href="../Ejercicios-HTML/ej_productos.html">Catálogo</a>
-    <a href="carrito.html">Carrito de Compras</a>
-  </nav>
-
-  <main id="mostrar-carrito" class="item4"></main>
-  <footer class="item5">Info de contacto</footer>
-  
-</body>
+   <script type="text/javascript" src="tienda.js"></script>
+    <meta charset="UTF-8" />
+  </head>
+  <body class="grid-container" onload="mostrarCarrito();contarProductos()">
+    <header class="item1">Carrito de Compras</header>
+    <nav class="item2">
+      <a href="productos.html">Catálogo de Productos</a>
+      <a href="carrito.html">Carrito de Compras</a>
+      <div id="cant-prod">0</div>
+    </nav>
+    <main class="item4" id="carrito"></main>
+    <footer class="item5">Info de Contacto</footer>
+  </body>
 </html>
-
 
 
 
